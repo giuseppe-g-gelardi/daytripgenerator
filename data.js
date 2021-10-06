@@ -8,7 +8,7 @@ let data = [
   {
     destination: 'Austin',
     restaurant: 'Tumble-22',
-    transport: 'rent a model-X from turo',
+    transport: ['rent a model-X from turo', 'Capital Metro', 'Uber/Lyft/Taxi'],
     entertainment: [
       'rent a boat on lake travis',
       'stand-up paddle boarding on lady bird lake',
@@ -21,7 +21,7 @@ let data = [
   {
     destination: 'San Francisco',
     restaurant: '5A5 Steak Lounge',
-    transport: 'MUNI',
+    transport: ['MUNI', 'Uber/Lyft/Taxi', 'Walking'],
     entertainment: [
       'walking across the golden gate bridge',
       'snacks at the embarcadero',
@@ -34,7 +34,7 @@ let data = [
   {
     destination: 'New York City',
     restaurant: 'Dorsia', // LOLLLLLL
-    transport: 'Uber',
+    transport: ['Uber/Lyft/Taxi', 'Subway', 'Walking'],
     entertainment: [
       'Navigating through crowds in Times Square',
       'M&M Factory',
