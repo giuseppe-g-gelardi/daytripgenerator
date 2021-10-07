@@ -13,10 +13,6 @@
 
 
 
-// ! function to reroll specific activities
-const reRollTripActivities = (data) => {
-  // figure out how to reroll specific things here plz halp
-}
 
 
 
@@ -60,16 +56,13 @@ const app = (trip) => {
     let randomIndex = Math.floor(Math.random() * newRest.length)
     console.log(newRest[randomIndex])
 
-
     tripArray = [
       trip[randomDestination].destination,
       newRest[randomIndex],
       trip[randomDestination].transport[randomTransport],
       trip[randomDestination].entertainment[randomEntertainment],
     ]
-
     return tripArray
-
   }
 
   const reRollTransport = () => {
@@ -88,7 +81,6 @@ const app = (trip) => {
   const reRollActivities = () => {
 
     let userInputReRollActivities = prompt("Which activity would you like to reroll? Destination, Restaurant, Transportation and/or Entertainment").toLowerCase()
-
 
     switch (userInputReRollActivities) {
       case 'destination':
