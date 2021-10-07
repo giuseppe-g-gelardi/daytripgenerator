@@ -1,7 +1,4 @@
-//
-// TODO make an array or objects that contain premade trips as well as selectable destinations, restaurants, transport and entertainment
-
-// * quick example
+// ! trip data
 
 
 let data = [
@@ -44,6 +41,4 @@ let data = [
       'central park zoo'
     ]
   }
-  // TODO decide if i want to add more later
-  // this seems like it should be enough
 ]

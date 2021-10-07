@@ -1,11 +1,12 @@
 
 // * day trip generator!
 
+
 // ! this just logs data to the console
-const dataLogger = (trip) => {
-  console.log(trip)
-}
-dataLogger(data)
+// const dataLogger = (trip) => {
+//   console.log(trip)
+// }
+// dataLogger(data)
 // ! plz no touchy
 
 
@@ -26,40 +27,59 @@ const app = (trip) => {
 
   let tripArray = []
 
+  // generate a random destination
+  let randomDestination = Math.floor(Math.random() * trip.length) 
+  
+  //generate a random restaurant within the destination
+  let rest = trip[randomDestination].restaurant
+  let randomRestaurant = Math.floor(Math.random() * rest.length)
+  
+  //generates a random mode of transportation within the destination
+  let transportation = trip[randomDestination].transport
+  let randomTransport = Math.floor(Math.random() * transportation.length)
+  
+  // generaetes a random form of activity or entertainment based on destination
+  let ent = trip[randomDestination].entertainment
+  let randomEntertainment = Math.floor(Math.random() * ent.length)
+
+
 
   const getRandomTrip = () => {
-    tripArray = []
-
-    let randomDestination = Math.floor(Math.random() * trip.length) 
-  
-    let rest = trip[randomDestination].restaurant
-    let randomRestaurant = Math.floor(Math.random() * rest.length)
-  
-    let transportation = trip[randomDestination].transport
-    let randomTransport = Math.floor(Math.random() * transportation.length)
-  
-    let ent = trip[randomDestination].entertainment
-    let randomEntertainment = Math.floor(Math.random() * ent.length)
-  
-    tripArray.push(trip[randomDestination].destination)
-    tripArray.push(trip[randomDestination].restaurant[randomRestaurant])
-    tripArray.push(trip[randomDestination].transport[randomTransport])
-    tripArray.push(trip[randomDestination].entertainment[randomEntertainment])
-  
+    tripArray = [
+      trip[randomDestination].destination,
+      trip[randomDestination].restaurant[randomRestaurant],
+      trip[randomDestination].transport[randomTransport],
+      trip[randomDestination].entertainment[randomEntertainment]
+    ]
     return tripArray
-    
   }
 
+
   const reRollRestaurant = () => {
-    console.log('new restaurant')
+    let newRest = trip[randomDestination].restaurant
+    let randomIndex = Math.floor(Math.random() * newRest.length)
+    console.log(newRest[randomIndex])
+
+
+    tripArray = [
+      trip[randomDestination].destination,
+      newRest[randomIndex],
+      trip[randomDestination].transport[randomTransport],
+      trip[randomDestination].entertainment[randomEntertainment],
+    ]
+
+    return tripArray
+
   }
 
   const reRollTransport = () => {
     console.log('new transportation')
+    console.log(trip[randomDestination].transport)
   }
 
   const reRollEntertainment = () => {
     console.log('new entertainment')
+    console.log(trip[randomDestination].entertainment)
   }
 
 
@@ -75,7 +95,7 @@ const app = (trip) => {
         let destPrompt = prompt('ReRolling the destination will ReRoll the whole trip, are you sure?')
         if (destPrompt === 'yes') {
           tripArray = []
-          // console.clear()
+          console.clear()
           getRandomTrip()
         } else  if (destPrompt === 'no') {
           reRollActivities()
