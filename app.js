@@ -25,7 +25,6 @@ const reRollTripActivities = (data) => {
 const app = (trip) => {
 
   let tripArray = []
-  let currentDestination = tripArray[0]
 
 
   const getRandomTrip = () => {
@@ -52,7 +51,7 @@ const app = (trip) => {
   }
 
   const reRollRestaurant = () => {
-    console.log('new restaurant', currentDestination)
+    console.log('new restaurant')
   }
 
   const reRollTransport = () => {
@@ -78,8 +77,8 @@ const app = (trip) => {
           tripArray = []
           // console.clear()
           getRandomTrip()
-        } else {
-          userInputReRollActivities
+        } else  if (destPrompt === 'no') {
+          reRollActivities()
         }
         break;
       case 'restaurant':
