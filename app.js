@@ -30,8 +30,6 @@ const app = (trip) => {
 
   const getRandomTrip = () => {
 
-    
-
     let randomDestination = Math.floor(Math.random() * trip.length) 
   
     let rest = trip[randomDestination].restaurant
@@ -50,6 +48,18 @@ const app = (trip) => {
   
     return tripArray
     
+  }
+
+  const reRollRestaurant = () => {
+    console.log('new restaurant')
+  }
+
+  const reRollTransport = () => {
+    console.log('new transportation')
+  }
+
+  const reRollEntertainment = () => {
+    console.log('new entertainment')
   }
 
 
@@ -72,13 +82,13 @@ const app = (trip) => {
         }
         break;
       case 'restaurant':
-        console.log('this should reroll restaurant')
+        reRollRestaurant()
         break;
       case 'transportation':
-        console.log('this should reroll transportation')
+        reRollTransport()
         break;
       case 'entertainment':
-        console.log('this should reroll entertainment')
+        reRollEntertainment()
         break
     }
 
