@@ -29,6 +29,7 @@ const app = (trip) => {
 
 
   const getRandomTrip = () => {
+    tripArray = []
 
     let randomDestination = Math.floor(Math.random() * trip.length) 
   
@@ -51,7 +52,7 @@ const app = (trip) => {
   }
 
   const reRollRestaurant = () => {
-    console.log('new restaurant')
+    console.log('new restaurant', currentDestination)
   }
 
   const reRollTransport = () => {
@@ -75,7 +76,7 @@ const app = (trip) => {
         let destPrompt = prompt('ReRolling the destination will ReRoll the whole trip, are you sure?')
         if (destPrompt === 'yes') {
           tripArray = []
-          console.clear()
+          // console.clear()
           getRandomTrip()
         } else {
           userInputReRollActivities
@@ -112,8 +113,8 @@ const app = (trip) => {
       isComplete = true;
       console.log("Enjoy your trip")
     } else if (userInputReRollTrip === 'no') {
-      tripArray = []
-      console.clear()
+      // tripArray = []
+      // console.clear()
       reRollActivities()
     }
   }
