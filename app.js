@@ -12,17 +12,6 @@ dataLogger(data)
 
 
 
-
-
-// ! function to get a random trip
-
-
-// getRandomTrip(data)
-// let tripLogger = getRandomTrip(data)
-// console.log(tripLogger)
-// !
-
-
 // ! function to reroll specific activities
 const reRollTripActivities = (data) => {
   // figure out how to reroll specific things here plz halp
@@ -34,12 +23,15 @@ const reRollTripActivities = (data) => {
 
 
 const app = (trip) => {
+
   let tripArray = []
+  let currentDestination = tripArray[0]
 
 
   const getRandomTrip = () => {
 
-  
+    
+
     let randomDestination = Math.floor(Math.random() * trip.length) 
   
     let rest = trip[randomDestination].restaurant
@@ -63,21 +55,57 @@ const app = (trip) => {
 
 
 
+  const reRollActivities = () => {
 
-  let isComplete = false;
+    let userInputReRollActivities = prompt("Which activity would you like to reroll? Destination, Restaurant, Transportation and/or Entertainment").toLowerCase()
 
-  while (!isComplete) {
-    console.log(getRandomTrip())
-    let userInput = prompt('Are you satisfied with your trip? Yes or No').toLowerCase()
 
-    if (userInput === "yes") {
-      isComplete = true;
-      console.log("Enjoy your trip")
-    } else {
-      getRandomTrip()
-      console.log(tripArray)
+    switch (userInputReRollActivities) {
+      case 'destination':
+        let destPrompt = prompt('ReRolling the destination will ReRoll the whole trip, are you sure?')
+        if (destPrompt === 'yes') {
+          tripArray = []
+          console.clear()
+          getRandomTrip()
+        } else {
+          userInputReRollActivities
+        }
+        break;
+      case 'restaurant':
+        console.log('this should reroll restaurant')
+        break;
+      case 'transportation':
+        console.log('this should reroll transportation')
+        break;
+      case 'entertainment':
+        console.log('this should reroll entertainment')
+        break
     }
 
+
+  }
+
+  // const inputValidate = () => {
+  //   alert('Invalid response entered, please enter Yes or No')
+  // }
+
+
+
+
+  let isComplete = false;
+  while (isComplete === false) {
+    console.log(getRandomTrip())
+    let userInputReRollTrip = prompt('Are you satisfied with your trip? Yes or No').toLowerCase()
+
+
+    if (userInputReRollTrip === 'yes') {
+      isComplete = true;
+      console.log("Enjoy your trip")
+    } else if (userInputReRollTrip === 'no') {
+      tripArray = []
+      console.clear()
+      reRollActivities()
+    }
   }
 
 }
